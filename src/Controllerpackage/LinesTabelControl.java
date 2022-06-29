@@ -31,34 +31,26 @@ public class LinesTabelControl extends DefaultTableModel {
     @Override
     public void removeRow(int row)
     {
-    	if(Lines.remove(row)==null) {
-    		 System.out.print(false);
-    }
     	Lines.remove(row);
     }
 
     
     @Override
-    public Object getValueAt(int row, int colume) {
+    public Object getValueAt(int row, int cloume) {
 
         InvoiceLine inv = Lines.get(row);
-
-        if(colume==0)
-        {
-        	return inv.getProduct();
-        }else if(colume==1)
-        {
-        	return inv.getPrice();
-        }else if(colume==2)
-        {
-        	return inv.getCount();
-        }else if(colume==3)
-        {
-        	return inv.getLineTotal();
-        }else
-        {
-        	return null;
+        switch (cloume) {
+            case 0:
+                return inv.getProduct();
+            case 1:
+                return inv.getPrice();
+            case 2:
+                return inv.getCount();
+            case 3:
+                return inv.getLineTotal();
+               
         }
+        return null;
     }
 
     @Override
