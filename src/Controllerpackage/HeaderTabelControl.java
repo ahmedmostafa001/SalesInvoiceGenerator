@@ -22,10 +22,6 @@ public class HeaderTabelControl extends DefaultTableModel {
         return invoices.size();
     }
 
-    public HeaderTabelControl() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	@Override
     public int getColumnCount() {
@@ -39,21 +35,20 @@ public class HeaderTabelControl extends DefaultTableModel {
     
 
     @Override
-    public Object getValueAt(int row, int colume) {
+    public Object getValueAt(int row, int cloume) {
 
-    	InvoiceHeader inv = invoices.get(row);
-
-        if(colume==0) {
-            return inv.getNum();
-        } else if(colume==1) {
-            return inv.getCustomerName();
-        }else if(colume==2) {
-            return inv.getDate();
-        }else if(colume==3) {
-            return inv.getInvTotal();
-        }else {
-            return null;
-    }
+        InvoiceHeader inv = invoices.get(row);
+        switch (cloume) {
+            case 0:
+                return inv.getNum();
+            case 1:
+                return inv.getCustomerName();
+            case 2:
+                return inv.getDate();
+            case 3:
+                return inv.getInvTotal();
+        }
+        return null;
     }
 
     @Override
